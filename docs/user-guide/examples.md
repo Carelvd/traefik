@@ -2,6 +2,21 @@
 
 You will find here some configuration examples of Træfik.
 
+## Web/API User Interface
+
+This configuration provides one with a quick check to ensure that they can get Traefik up and running.
+It serves the Web UI on port 80, usually some other port such as 8080 is used but one might not realise that this is blocked by ones firewall rules.
+
+```toml
+defaultEntryPoints = ["traefik"]
+[entrypoints.traefik]
+address = ":80"
+[api]
+entryPoint = "traefik"
+dashboard = true
+debug = true
+```
+
 ## HTTP only
 
 ```toml
